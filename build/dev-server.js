@@ -8,7 +8,7 @@ var webpackConfig = process.env.NODE_ENV === 'testing'
   : require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
-var port = process.env.PORT || config.dev.port
+var port = 1030 || process.env.PORT || config.dev.port  //写死了1030端口
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
 var proxyTable = config.dev.proxyTable

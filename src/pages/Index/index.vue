@@ -14,7 +14,7 @@
   </div>
   <div>{{price | price 'wrap'}}</div>
   <div>{{price | allPrice }}</div>
-
+  <all-price></all-price>
 </template>
 <style lang="stylus" rel="stylesheet/stylus">
   .index-page {

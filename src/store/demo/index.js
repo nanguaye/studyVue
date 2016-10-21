@@ -5,8 +5,8 @@ const state = {
 }
 
 const mutations = {
-  MINE_INFO (state,mineInfo){
-    state.demoName = mineInfo.name
+  MINE_INFO (state,data){
+    state.demoName = data
   }
 }
 export default {
