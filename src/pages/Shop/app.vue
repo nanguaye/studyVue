@@ -12,13 +12,14 @@
       }
     },
     route:{
-      activate () {
+      data () {
         return new Promise((resolve) => {
           this.getDemoData().then(() => {
             resolve()
           })
         })
-      }
+      },
+      waitForData: true
     },
     ready() {
     }

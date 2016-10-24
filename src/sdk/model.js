@@ -16,7 +16,7 @@ class Model {
       if(method === 'get') {
         setTimeout(()=>{
           resolve('GET')
-        },2000)
+        }, 500)
       }
       if(method === 'post') {
         resolve('POST')
