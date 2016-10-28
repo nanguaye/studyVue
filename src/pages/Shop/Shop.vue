@@ -1,8 +1,8 @@
 <template>
    <div style="text-align: center;font-size: 30px">这是shop页面{{demoName}}</div>
-   <div v-my-directive:click="name" a="哈哈" b="嘿嘿">{{name}}</div>
+   <div v-my-directive:click="name" a="哈哈" b="嘿嘿" style="width: 100px;height: 50px;background-color: red">{{name}}</div>
   <!--<button @click="demo()" style="margin-top: 20px">改变name</button>-->
-  <input v-example="name" style="border: 1px solid;margin-top: 20px">
+  <!--<input v-example="name" style="border: 1px solid;margin-top: 20px">-->
 </template>
 <script type="text/babel">
   export default {
@@ -15,7 +15,6 @@
       },
     },
     ready() {
-//      console.log('ready-demoName', this.demoName)
     },
     data() {
       return {
@@ -29,15 +28,19 @@
     },
     directives: {
       'my-directive': {
+        twoWay: true,
         params: ['a','b'],
         bind: function () {
           // 定义个fun
           this.ClickFun = function () {
-            console.log('增加click事件!!!!!')
+//            this.el.value = this.el.value ++
+//            this.set(this.el.value)
+            this.vm.name++
+            console.log('增加click事件!!!!!', this.vm.name)
           }.bind(this)
           // 为指令绑定的这个元素添加操作事件 PS: addEventListener 事件 (type,fun) type 是指具体的操作事件 比如click 等等
           // this.arg 在指这个指令my-directive 冒号后面的
-          this.el.addEventListener(this.arg, this.ClickFun)
+          this.el.addEventListener('touchend', this.ClickFun)
           // 做绑定的准备工作
           // 比如添加事件监听器，或是其他只需要执行一次的复杂操作
           console.log('准备工作------bind',this.params.a, this.params.b)
